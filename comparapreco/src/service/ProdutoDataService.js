@@ -1,6 +1,9 @@
 import ProdutoData from "../http-common"
 
-
-const getAllProduto = () =>{
+const getAllProdutos = () =>{
     return ProdutoData.get("produto/")
+}
+
+export default{
+    getAllProdutos
 }
