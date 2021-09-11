@@ -7,7 +7,11 @@ const Principal = ()=>{
     const [ productList, setProductList] = useState([])
 
     const populateProductList = ()=>{
-        setProductList(ProdutoDataService.getAllProdutos())
+        ProdutoDataService.getAllProdutos()
+        .then(response =>{
+            setProductList(response.data.content)
+        })
+        
     }
 
     useEffect(()=>{
@@ -26,6 +30,7 @@ const Principal = ()=>{
             </div>
             <div className='cardListBackground'>
                 <div className='cards'>
+                   
                    {
                        productList.map((item)=>{
                            return <CardPrincipal product={item}/>

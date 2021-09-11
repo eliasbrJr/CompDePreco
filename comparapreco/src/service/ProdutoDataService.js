@@ -73,10 +73,14 @@ const productList = [
     }
 ]
 const getAllProdutos = () =>{
-    return productList
-    //return ProdutoData.get("produto/")
+    //return productList
+    return ProdutoData.get("produtos/")
+}
+const getProductByName = (name)=>{
+  return ProdutoData.get(`produtos?nome=${name}`)
 }
 
 export default{
-    getAllProdutos
+    getAllProdutos,
+    getProductByName
 }

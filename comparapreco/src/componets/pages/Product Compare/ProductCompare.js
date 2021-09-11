@@ -5,14 +5,11 @@ import ProdutoDataService from "../../../service/ProdutoDataService";
 import './ProductCompare.css';
 import { useProductContext } from '../../Context/ProductContext';
 
-const ProductCompare = () => {
-
-    const context = useProductContext();
-
+const ProductCompare = (props) => {
     const [locale, setLocale] = useState([]);
     const [inputList, setInputList] = useState([{ locate: '' }]);
     const [productList, setProductList] = useState([]);
-
+    const name = props.match.params.nome;
     const handInputListChange = (e, index) => {
         let { name, value } = e.target;
         let list = [...inputList];
@@ -44,7 +41,10 @@ const ProductCompare = () => {
         setLocale([])
     }
     const populateProductList = ()=>{
-        setProductList(ProdutoDataService.getAllProdutos())
+        ProdutoDataService.getProductByName(name)
+        .then(response =>{
+            setProductList(response.data.content)
+        })
     }
     useEffect(()=>{
         populateProductList()
@@ -54,7 +54,7 @@ const ProductCompare = () => {
             {
                 locale.length ? (
                     <div className='content-page'>
-                        <h2 className='title-page'>{productList[0].title}</h2 >
+                        <h2 className='title-page'>{productList.length ? productList[0].title: "Produto Não Encontrado"}</h2 >
                         <section className='top-side'>
                             <div className='locale-list'>
                                 <h3> Locais escolhidos </h3>
@@ -72,14 +72,17 @@ const ProductCompare = () => {
                             </div>
                             <div className='card-most-value'>
                                 <h3>Menor Preço</h3>
+                                {  
+                                productList.length && 
                                 <CardProductList product={productList[0]}/>
-                            </div>
+                                }
+                                </div>
                         </section>
                         <div className='card-product-list'>
                             <div className='card-product-list-bg'>
                                 <h3>Outros Preços</h3>
                                 <div className='cards-product'>
-                                   
+
                                     {
                                         productList.map((item) => {
                                             return <CardProductList product={item} />

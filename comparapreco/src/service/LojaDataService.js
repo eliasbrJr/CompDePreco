@@ -77,7 +77,10 @@ const getAllLojas = () =>{
     return loja
     // return LojaData.get("lojas/")
 }
-
+const getLojaByID = (id) =>{
+  return LojaData.get(`lojas/${id}`)
+}
 export default{
-    getAllLojas
+    getAllLojas,
+    getLojaByID
 }
