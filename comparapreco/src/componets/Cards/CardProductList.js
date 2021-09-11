@@ -1,27 +1,28 @@
+import React from 'react';
 import './CardProductList.css'
 const CardProductList = (props) =>{
 
     return(
         <div>
-            <div class = 'card-product-background'>
-                <div class = 'content'>
-                    <div class = 'card-product-photo'>
+            <div className = 'card-product-background'>
+                <div className = 'content'>
+                    <div className = 'card-product-photo'>
                         <img src={props.product.photo} alt='Foto Produto'/>
                     </div>
-                    <div class='description'>
-                        <div class='card-title'>
-                            <div class = 'card-product-text'>
+                    <div className='description'>
+                        <div className='card-title'>
+                            <div className = 'card-product-text'>
                                 <h4> {props.product.title}</h4>
-                                <p class ='market-name'>{props.product.market}</p>
-                                <p class='market-adress'>{props.product.adress}</p>
+                                <p className ='market-name'>{props.product.market}</p>
+                                <p className='market-adress'>{props.product.adress}</p>
                             </div>
-                            <div class='market-button'>
+                            <div className='market-button'>
                                 <button>Loja</button>
                             </div>
                         </div>
-                        <div class = 'card-product-price-background'>
-                            <div class='card-product-price-description'>
-                                <p class='card-product-price-value'>{props.product.price}</p>
+                        <div className = 'card-product-price-background'>
+                            <div className='card-product-price-description'>
+                                <p className='card-product-price-value'>{props.product.price}</p>
                             </div>
                         </div>
                     </div>

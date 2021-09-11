@@ -13,33 +13,33 @@ const Store = ()=>{
     },[])
     return (
         <div>
-            <section class='header-store-section'>
-                <div class='store-pic'> 
-                    <img class='sotre-pic'src={store.photo} alt='Foto da Loja'/>
+            <section className='header-store-section'>
+                <div className='store-pic'> 
+                    <img className='sotre-pic'src={store.photo} alt='Foto da Loja'/>
                 </div>
-                <div class='market-name'>
+                <div className='market-name'>
                     <h1>{store.name}</h1>
                 </div>
-                <section class='adress-section'>
-                    <div class='adress-title'>
+                <section className='adress-section'>
+                    <div className='adress-title'>
                         <h3>Onde Nos Encontrar</h3>
                     </div>
-                    <div class='adress-frame'>
+                    <div className='adress-frame'>
                         <iframe src={`https://www.google.com/maps/embed?pb=${store.adress}`} ></iframe>
-                        <div class='phone-store'>
+                        <div className='phone-store'>
                             <h4>Ligue já</h4>
                             <h5>{store.phone}</h5>
                         </div>
                     </div>
                 </section>
             </section>
-            <section class='content-store-page'>
-                <section class='filter-section'>
+            <section className='content-store-page'>
+                <section className='filter-section'>
                         <h3>Filtros</h3>
                 </section>
-                <section class='cards-section'>
-                <div class='cardListBackground-store'>
-                <div class='cards-store'>
+                <section className='cards-section'>
+                <div className='cardListBackground-store'>
+                <div className='cards-store'>
                    {
                        store.products.map((item)=>{
                            return <CardPrincipal product={item}/>

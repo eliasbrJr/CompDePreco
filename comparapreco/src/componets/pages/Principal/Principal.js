@@ -9,21 +9,23 @@ const Principal = ()=>{
     const populateProductList = ()=>{
         setProductList(ProdutoDataService.getAllProdutos())
     }
+
     useEffect(()=>{
         populateProductList()
-    },[])
+    },[]);
+
     return(
-        <div class = 'page'>
-            <div class = 'title'>
+        <div className = 'page'>
+            <div className = 'title'>
                 <h1>
                     Compara Preço
                 </h1>
             </div>
-            <div class = 'subtitle'>
+            <div className = 'subtitle'>
                <h2> O Menor Preço Você Encontra Aqui </h2>
             </div>
-            <div class='cardListBackground'>
-                <div class='cards'>
+            <div className='cardListBackground'>
+                <div className='cards'>
                    {
                        productList.map((item)=>{
                            return <CardPrincipal product={item}/>

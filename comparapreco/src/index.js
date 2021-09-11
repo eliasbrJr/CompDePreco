@@ -4,11 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter} from 'react-router-dom'
+import {BrowserRouter} from 'react-router-dom';
+import ProductProvider from './componets/Context/ProductContext';
+
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <ProductProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </ProductProvider>,
   document.getElementById('root')
 );
 
