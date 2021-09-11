@@ -1,0 +1,66 @@
+  body{
+    background: rgb(255,255,241);
+    background: linear-gradient(180deg, rgba(255,255,241,1) 66%, rgba(248,194,47,1) 100%);
+    background-size: 400% 400%;
+    position: relative;
+    animation: change 10s ease-in-out infinite;
+}  
+
+@keyframes change {
+    0%{
+        background-position: 0 70%;
+    }
+    50%{
+        background-position: 100% 40%;
+    }
+    100%{
+        background-position: 0 70%;
+    }
+}
+.title{
+    text-align: center;
+    margin: 20px;
+}
+.subtitle{
+    text-align: center;
+    margin: 20px;
+}
+.cardListBackground{
+    margin: auto;
+    background-color: #ffffff;
+    width: 1322px;
+    height: 714px;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+}
+.cards{
+    margin: auto;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    overflow-y: scroll;
+    
+}
+@media screen and (max-width: 1300px){
+
+    .cards *{
+        flex: 0 0 33.333333%;
+    }
+    .cardListBackground{
+        width: 1200px;
+        height: 714px;
+    }
+}
+@media screen and (max-width: 1160px){
+    .cardListBackground{
+        width: 1000px;
+    }
+}
+@media screen and (max-width: 950px){
+    .cardListBackground{
+        width: 600px;
+    }
+}

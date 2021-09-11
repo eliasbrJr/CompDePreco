@@ -1,41 +1,61 @@
-import React from "react";
+import React, { useState } from 'react';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  NavbarText,
+  InputGroup,
+  InputGroupButtonDropdown,
+  Input,
+  InputGroupAddon,
+  Button
+} from 'reactstrap';
 
-const topo = () => {
+const Topo = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => setIsOpen(!isOpen);
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const toggleDropDown = () => setDropdownOpen(!dropdownOpen);
+
   return (
-    <div >   
-        <Navbar bg="light" expand="lg">
-  <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
-  <Navbar.Toggle aria-controls="navbarScroll" />
-  <Navbar.Collapse id="navbarScroll">
-    <Nav
-      className="mr-auto my-2 my-lg-0"
-      style={{ maxHeight: '100px' }}
-      navbarScroll
-    >
-      <Nav.Link href="#action1">Home</Nav.Link>
-      <Nav.Link href="#action2">Link</Nav.Link>
-      <NavDropdown title="Link" id="navbarScrollingDropdown">
-        <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-        <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
-      </NavDropdown>
-      <Nav.Link href="#" disabled>
-        Link
-      </Nav.Link>
-    </Nav>
-    <Form className="d-flex">
-      <FormControl
-        type="search"
-        placeholder="Search"
-        className="mr-2"
-        aria-label="Search"
-      />
-      <Button variant="outline-success">Search</Button>
-    </Form>
-  </Navbar.Collapse>
-</Navbar>
+    <div className="container">
+      <Navbar light expand="md">
+        <NavbarBrand className="col col-sm-2" href="/">reactstrap</NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="mr-auto" navbar>
+            <UncontrolledDropdown nav inNavbar>
+            </UncontrolledDropdown>
+          </Nav>
+          <InputGroup>
+            <InputGroupButtonDropdown addonType="append" isOpen={dropdownOpen} toggle={toggleDropDown}>
+              <DropdownToggle caret>
+                Loja
+              </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem>Loja</DropdownItem>
+                <DropdownItem>Produto</DropdownItem>
+              </DropdownMenu>
+            </InputGroupButtonDropdown>
+
+            <Input placeholder="Pesquisar" />
+            <InputGroupAddon addonType="prepend"><Button>Pesquisar</Button></InputGroupAddon>
+          </InputGroup>
+          <NavbarText className="col col-md-2">Simple Text</NavbarText>
+        </Collapse>
+      </Navbar>
     </div>
   );
-};
-export default topo;
+}
+
+export default Topo;

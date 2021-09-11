@@ -1,3 +1,7 @@
+.button-geral{
+    border: none;
+    background: none;
+}
 .card-background{
     background-color: #EEEEEE;
     border-radius: 10px;
@@ -5,7 +9,9 @@
     height: 293px;
     padding: 1px;
     position: relative;
+    box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
     transition: 0.9s;
+    margin: 10px;
 }
 .card-photo{
     width: 223px;

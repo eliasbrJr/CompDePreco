@@ -6,6 +6,7 @@
     padding: 1px;
     position: relative;
     transition: 0.9s;
+    margin: 10px;
 }
 .content{
     display: flex;
@@ -37,6 +38,9 @@
     background-color: #f8c22f;
     font-size: 46px;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .card-product-text{
     color: black;
@@ -133,4 +137,56 @@
         width: 950px;
         height: 316px;
     }
-  } 
+  }
+  @media screen and (max-width: 950px) {
+    .description{
+        width: 60%;
+        height: 60%;    
+    }
+    .card-product-text .market-adress{
+        font-size: 8px;
+    }
+    .card-product-background{
+        width: 500px;
+        height: 120px;
+    }
+    .card-product-photo{
+        width: 200px;
+        height: 100px;
+    }
+    .card-title{
+        width: 300px;
+        margin-right: 5px;
+    }
+    .market-button{
+        align-items: flex-end;
+    }
+    .market-button button{
+        margin-top: 6px;
+        width: 70px;
+        height: 20px;
+        font-size: 12px;
+    }
+    .card-product-text h4{
+        font-size: 12px;
+        margin: 0;
+    }
+    .card-product-text .market-name{
+        font-size: 12px;
+        font-weight: bolder;
+    }
+    .card-product-price-background{
+        bottom: 0px;
+        transition: 0.9s;
+        width: 120px;
+        height: 20px;
+    }
+    .card-product-price-value{
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .card-product-background:hover{
+        width: 515px;
+        height: 130px;
+    }
+  }  

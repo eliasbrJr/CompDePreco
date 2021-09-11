@@ -2,7 +2,7 @@ import './CardPrincipal.css'
 const CardPrincipal = (props) =>{
 
     return(
-        <div>
+        <button class='button-geral'>
             <div class = 'card-background'>
                 <div class = 'card-photo'>
                     <img src={props.product.photo} alt='Foto Produto'/>
@@ -17,8 +17,7 @@ const CardPrincipal = (props) =>{
                     </div>
                 </div>
             </div>
-
-        </div>
+        </button>
     )
 }
 export default CardPrincipal
