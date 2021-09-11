@@ -3,11 +3,15 @@ import { Alert } from "reactstrap";
 import CardProductList from "../../Cards/CardProductList";
 import ProdutoDataService from "../../../service/ProdutoDataService";
 import './ProductCompare.css';
+import useProductContext from '../../Context/ProductContext';
 
 const ProductCompare = () => {
+
+    const context = useProductContext();
+
     const [locale, setLocale] = useState([]);
-    const [inputList, setInputList] = useState([{ locate: '' }])
-    const [productList, setProductList] = useState([])
+    const [inputList, setInputList] = useState([{ locate: '' }]);
+    const [productList, setProductList] = useState([]);
 
     const handInputListChange = (e, index) => {
         let { name, value } = e.target;
