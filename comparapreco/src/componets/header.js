@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './header.css'
 import {
   Collapse,
   Navbar,
@@ -28,9 +29,9 @@ const Topo = (props) => {
   const toggleDropDown = () => setDropdownOpen(!dropdownOpen);
 
   return (
-    <div className="container">
+    <div className="topo">
       <Navbar light expand="md">
-        <NavbarBrand className="col col-sm-2" href="/">reactstrap</NavbarBrand>
+        <NavbarBrand className="col col-sm-2" href="/">Compara Preço</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
