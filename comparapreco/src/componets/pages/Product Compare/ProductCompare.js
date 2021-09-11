@@ -3,7 +3,7 @@ import { Alert } from "reactstrap";
 import CardProductList from "../../Cards/CardProductList";
 import ProdutoDataService from "../../../service/ProdutoDataService";
 import './ProductCompare.css';
-import useProductContext from '../../Context/ProductContext';
+import { useProductContext } from '../../Context/ProductContext';
 
 const ProductCompare = () => {
 
@@ -19,6 +19,7 @@ const ProductCompare = () => {
         list[index][name] = value;
         setInputList(list);
     }
+     
     const handleAddClick = () => {
         setInputList([...inputList, { locate: '' }]);
     }
