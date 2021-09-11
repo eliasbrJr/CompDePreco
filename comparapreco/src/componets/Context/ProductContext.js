@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 
-const AppContext = createContext();
+const AppContext = React.createContext();
 
 const AppProvider = ({children}) => {
 
@@ -29,6 +29,7 @@ const AppProvider = ({children}) => {
         </AppContext.Provider>
     );
 
-    export const ProductContext = () => useContext(AppContext);
-    export default AppProvider;
+    
 }
+export const ProductContext = () => useContext(AppContext);
+export default AppProvider;
