@@ -1,10 +1,12 @@
 import './App.css';
 import Topo from './componets/header.js';
+import Footer from './componets/foooter'
 
 function App() {
   return (
-    <div>
+    <div class="main">
       <Topo></Topo>
+      <Footer/>
     </div>
   );
 }
