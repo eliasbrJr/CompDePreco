@@ -11,7 +11,16 @@ const AppProvider = ({children}) => {
     const [nomeCategoria, setNomeCategoria] = useState("");
     
     const contextData = {
-
+        id,
+        nome,
+        preco,
+        nomeMarca,
+        nomeCategoria,
+        setId,
+        setNome,
+        setPreco,
+        setNomeMarca,
+        setNomeCategoria
     }
 
     return (
