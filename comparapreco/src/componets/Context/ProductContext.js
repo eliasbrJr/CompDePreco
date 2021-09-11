@@ -23,3 +23,4 @@ const AppProvider = ({children}) => {
     export const ProductContext = () => useContext(AppContext);
     export default AppProvider;
 }
+        
