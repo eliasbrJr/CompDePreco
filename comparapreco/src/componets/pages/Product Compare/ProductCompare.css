@@ -116,26 +116,41 @@
         transition: 0.9s;
 }
 .locale-list button:hover{
-    width: 120px;
-    height: 35px;
-    border-radius: 30px;
-    background-color: greenyellow;
+    background: linear-gradient(to left,  greenyellow 50%, #f8c22f 50%) right;
+    background-size: 200%;
+    transition: .5s ease-out;
 }
-.card-most-value{
-    margin: 10px;
-    background-color: greenyellow;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 20px 20px rgb(222, 255, 172)
+.img-star{
+    position: relative;
+    z-index: 1;
+    transition: 5s;
 }
+.img-star img{
+    width: 60px;
+    height: 60px; 
+    position: absolute;
+    top:20px;
+    left: -40px;
+}
+
+.card-most-value:hover .img-star {
+    animation: movestar 2s forwards;
+}
+.card-most-value:hover .img-star img{
+    animation: rotate 2s forwards;
+}
+@keyframes movestar {
+    0%   {right: 40px}
+    100% {right: -700px;}
+  }
+  @keyframes rotate {
+    100% {transform: rotate(180deg)}
+  }
+ 
 .card-product-list-bg{
     margin: auto;
     background-color: #ffffff;
-    width: 1322px;
+    width: 1100px;
     height: 1007px;
     border-radius: 10px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -182,6 +197,19 @@
     .card-product-list-bg{
         width: 1000px;
     }
+    .img-star img{
+        width: 30px;
+        height: 30px;
+        top: 30px;
+        left: 0;
+    }
+    @keyframes movestar {
+        0%   {right: 40px}
+        100% {right: -370px;}
+      }
+      @keyframes rotate {
+        100% {transform: rotate(180deg)}
+      }
 }
 @media screen and (max-width: 950px){
     

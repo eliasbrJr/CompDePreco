@@ -1,6 +1,8 @@
 .button-geral{
     border: none;
     background: none;
+    text-decoration: none;
+    height: fit-content;
 }
 .card-background{
     background-color: #EEEEEE;

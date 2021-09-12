@@ -72,9 +72,9 @@ import ProdutoData from "../http-common"
 //       price:'7,00'  
 //     }
 // ]
-const getAllProdutos = () =>{
+const getAllProdutos = (numberPage) =>{
     //return productList
-    return ProdutoData.get("produtos/")
+    return ProdutoData.get(`produtos?page=${numberPage}`)
 }
 const getProductByName = (name)=>{
   return ProdutoData.get(`produtos?nome=${name}`)

@@ -43,6 +43,7 @@ const ProductCompare = (props) => {
     const populateProductList = ()=>{
         ProdutoDataService.getProductByName(name)
         .then(response =>{
+            response.data.content.sort((a,b)=> a.preco - b.preco)
             setProductList(response.data.content)
         })
     }
@@ -71,6 +72,9 @@ const ProductCompare = (props) => {
                                 <button onClick={clearlocale}>Edit</button>
                             </div>
                             <div className='card-most-value'>
+                                <div class='img-star'>
+                                    <img src='/Photos/star1.png'/>
+                                </div>
                                 <h3>Menor Preço</h3>
                                 {  
                                 productList.length && 
@@ -83,7 +87,7 @@ const ProductCompare = (props) => {
                                 <h3>Outros Preços</h3>
                                 <div className='cards-product'>
 
-                                    {
+                                    { 
                                         productList.map((item) => {
                                             return <CardProductList product={item} />
                                         })
