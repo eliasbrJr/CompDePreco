@@ -8,9 +8,12 @@
     height: auto;
     padding: 20px;
     margin: 100px auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
     border-radius: 10px;
     box-shadow: 0 20px 20px rgba(0, 0, 0, 0.5);
 }
+
 .locate-painel h2{
     text-align: center;
 }
@@ -27,17 +30,15 @@
     display: flex;
     justify-content: space-between;
 }
-.form-dell-button{
-    
-    justify-content: flex-end;
-    font-size: 12px;
-    color: white;
-    margin-left: 5px;
-    border-radius: 30px;
-    background-color: rgb(255, 88, 88);
-    border: none;
+
+.titulo-Principal{
+    margin-top: 50px;
+    text-align: center;
 }
-.form-submit-button{
+
+.button-Concluir{
+    width: 400px;
+    height: 50px;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -47,12 +48,22 @@
     background-size: 200%;
     transition: .5s ease-out;
 }
-.form-submit-button:hover{
+
+.botaoConcluir{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.button-Concluir:hover{
     color: white;
     background-position: left;
 }
 .form-add-button{
     border-radius: 10px;
+    width: 20px;
+    height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -154,6 +165,7 @@
     overflow-y: scroll;
     
 }
+
 @media screen and (max-width: 1300px){
 
     .cards *{
