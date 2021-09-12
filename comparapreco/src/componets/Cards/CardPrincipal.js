@@ -11,12 +11,12 @@ const CardPrincipal = (props) =>{
                     <img src={props.product.foto} alt='Foto Produto'/>      
                     </div>
                 <div class = 'card-Text'>
-                    <h4> {props.product.nome} {props.product.nomeMarca}</h4>
+                    <h4> {props.product.nome}</h4>
                 </div>
                 <div class = 'card-price-background'>
                     <div class='card-price-description'>
                         <p class='card-price-value-desc'>A Partir</p>
-                        <p class='card-price-value'>{props.product.preco}</p>
+                        <p class='card-price-value'>{(Math.round(props.product.preco * 100) / 100).toFixed(2)}</p>
                     </div>
                 </div>
             </div>

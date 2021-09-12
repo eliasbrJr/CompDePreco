@@ -39,7 +39,7 @@ const CardProductList = (props) =>{
                         </div>
                         <div className = 'card-product-price-background'>
                             <div className='card-product-price-description'>
-                                <p className='card-product-price-value'>{props.product.preco}</p>
+                                <p className='card-product-price-value'>{(Math.round(props.product.preco * 100) / 100).toFixed(2)}</p>
                             </div>
                         </div>
                     </div>
