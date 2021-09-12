@@ -29,7 +29,7 @@ const Store = (props)=>{
         <div>
             <section className='header-store-section'>
                 <div className='store-pic'> 
-                    <img className='sotre-pic'src={store.foto} alt='Foto da Loja'/>
+                    <img className='sotre-pic'src={store.foto? store.foto : '/Photos/defautstorescreen.jpg'} alt='Foto da Loja'/>
                 </div>
                 <div className='market-name'>
                     <h1>{store.nome}</h1>

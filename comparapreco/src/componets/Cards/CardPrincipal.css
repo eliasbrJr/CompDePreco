@@ -40,8 +40,9 @@
     margin-right: 10px;
     border-radius: 0 10px 10px 0;
     padding: 0 5px;
-    position: relative;
-    bottom: -55px;
+    position: absolute;
+    bottom: 5px;
+    width: 85%;
     transition: 0.9s;
 }
 .card-price-background p{

@@ -1,5 +1,6 @@
 import './CardPrincipal.css'
 import {Link} from 'react-router-dom'
+import { useEffect } from 'react'
 const CardPrincipal = (props) =>{
 
     return(
@@ -7,8 +8,8 @@ const CardPrincipal = (props) =>{
 
             <div class = 'card-background'>
                 <div class = 'card-photo'>
-                    <img src={props.product.foto} alt='Foto Produto'/>
-                </div>
+                    <img src={props.product.foto} alt='Foto Produto'/>      
+                    </div>
                 <div class = 'card-Text'>
                     <h4> {props.product.nome} {props.product.nomeMarca}</h4>
                 </div>
