@@ -6,23 +6,30 @@ import '../StoreCompare/StoreCompare.css';
 
 const StoreCompare = () => {
     const [locale, setLocale] = useState([]);
-    const [inputList, setInputList] = useState([{ locate: '' }])
+    const [inputListLocate, setInputListLocate] = useState([{ locate: '' }]);
+    const [listShop, setListShop] = useState([]);
+    const [inputListShop, setInputListShop] = useState([{ listShop: ''}]);
     const [productList, setProductList] = useState([])
 
-    const handInputListChange = (e, index) => {
+    const handInputListLocateChange = (e, index) => {
         let { name, value } = e.target;
-        let list = [...inputList];
+        let list = [...inputListLocate];
         list[index][name] = value;
-        setInputList(list);
+        setInputListLocate(list);
     }
 
     const handleAddClick = () => {
-        setInputList([...inputList, { locate: '' }]);
+        setInputListLocate([...inputListLocate, { locate: '' }]);
     }
+
+    const handleAddClickListShop = () =>{
+        setInputListShop([...inputListShop, {listShop: ''}]);
+    }
+
     const excludeLocateInput = (index) => {
-        let list = [...inputList];
+        let list = [...inputListLocate];
         list.splice(index, 1);
-        setInputList(list);
+        setInputListLocate(list);
 
     }
     const insertLocale = (e) => {
@@ -36,15 +43,51 @@ const StoreCompare = () => {
             valuelist.push(e.target.locate.value)
         setLocale(valuelist)
     }
+
     const clearlocale = () => {
         setLocale([])
     }
+
+    const handInputListShopChange = (e, i) =>{
+        let { name, value } = e.target;
+        let list = [...inputListShop];
+        list[i][name] = value;
+        setInputListLocate(list);
+    } 
+
+   
+    const excludeListInput = (i) =>{
+        let list = [...inputListShop];
+        list.splice(i, 1);
+        setInputListShop(list)
+    }
+
+    const insertListShop=(e) =>{
+        e.preventDefault();
+        let valuelist = [];
+        if(e.target.listShop.length > 0){
+            for(let i = 0; i < e.target.listShop.length; i++){
+                valuelist.push(e.target.listShop[i].value)
+            }
+        }
+        else{
+            valuelist.push(e.target.listShop.value)
+            setListShop(valuelist)
+        }
+    }
+
+    const clearListShop = () =>{
+        setListShop([])
+    }
+
     const populateProductList = () => {
         setProductList(ProdutoDataService.getAllProdutos())
     }
+
     useEffect(() => {
         populateProductList()
     }, [])
+    
     return (
         <div>
             {
@@ -88,38 +131,15 @@ const StoreCompare = () => {
                 ) : (
                     <div className="titulo-Principal">
                         <h2>Adicione:</h2>
-                        <div className='locate-painel'>
+                        <div className='store-painel'>
                             <h2>Bairro</h2>
                             <form className='locate-form' onSubmit={insertLocale}>
                                 {
-                                    inputList.length > 0 && (
-                                        inputList.map((inputIten, index) => {
+                                    inputListLocate.length > 0 && (
+                                        inputListLocate.map((inputIten, index) => {
                                             return (
                                                 <div>
-                                                    <input name="locate" placeHolder="Insira um Bairro" value={inputIten.locate} onChange={inputIten => handInputListChange(inputIten, index)} required />
-                                                    {
-                                                        index !== 0 &&
-                                                        <button className='form-dell-button' type='button' onClick={() => excludeLocateInput(index)}>X</button>
-                                                    }
-                                                </div>
-                                            )
-                                        })
-                                    )
-                                }
-                                <div className='form-button'>
-                                    <button className='form-add-button' type='button' onClick={handleAddClick}>Add Bairro</button>
-                                </div>
-                            </form>
-
-                            <h2>Lista de Compras</h2>
-                            <form className='locate-form' onSubmit={insertLocale}>
-                                {
-
-                                    inputList.length > 0 && (
-                                        inputList.map((inputIten, index) => {
-                                            return (
-                                                <div>
-                                                    <input name="locate" placeHolder="Insira um Produto" value={inputIten.locate} onChange={inputIten => handInputListChange(inputIten, index)} required />
+                                                    <input name="locate" placeHolder="Insira um Bairro" value={inputIten.locate} onChange={inputIten => handInputListLocateChange(inputIten, index)} required />
                                                     {
                                                         index !== 0 &&
                                                         <button className='form-dell-button' type='button' onClick={() => excludeLocateInput(index)}>X</button>
@@ -134,8 +154,30 @@ const StoreCompare = () => {
                                 </div>
                             </form>
 
+                            <h2>Lista de Compras</h2>
+                            <form className='locate-form' onSubmit={insertListShop}>
+                                {
+
+                                    inputListShop.length > 0 && (
+                                        inputListShop.map((inputIten, i) => {
+                                            return (
+                                                <div>
+                                                    <input name="listShop" placeHolder="Insira um Produto" value={inputIten.listShop} onChange={inputIten => handInputListShopChange(inputIten, i)} required />
+                                                    {
+                                                        i !== 0 &&
+                                                        <button className='form-dell-button' type='button' onClick={() => excludeListInput(i)}>X</button>
+                                                    }
+                                                </div>
+                                            )
+                                        })
+                                    )
+                                }
+                                <div className='form-button'>
+                                    <button className='form-add-button' type='button' onClick={handleAddClickListShop}>+</button>
+                                </div>
+                            </form>
                         </div>
-                        <div  className="botaoConcluir">
+                        <div className="botaoConcluir">
                             <button className='button-Concluir' type='submit'>Concluir</button>
                         </div>
                     </div>
