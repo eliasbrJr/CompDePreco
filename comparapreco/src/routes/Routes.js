@@ -8,7 +8,7 @@ const Routes = ()=>{
     return(
         <Switch>
             <Route exact path ={'/'} component={Principal}/>
-            <Route exact path ={'/productcompare/:id'} component={ProductCompare}/>
+            <Route exact path ={'/productcompare/:nome'} component={ProductCompare}/>
             <Route exact path ={'/store/:id'} component={Store}/> 
             <Route exact path ={'/storecompare/:id'} component={StoreCompare}/>
         </Switch>

@@ -1,12 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, createContext } from 'react';
 
 const AppContext = React.createContext();
 
 const AppProvider = ({children}) => {
 
-    const [id, setId] = useState(null);
+    const [id, setId] = useState(0);
     const [nome, setNome] = useState("");
-    const [preco, setPreco] = useState(null);
+    const [preco, setPreco] = useState(0.0);
     const [nomeMarca, setNomeMarca] = useState("");
     const [nomeCategoria, setNomeCategoria] = useState("");
     
@@ -28,8 +28,7 @@ const AppProvider = ({children}) => {
             {children}
         </AppContext.Provider>
     );
-
-    
 }
-export const ProductContext = () => useContext(AppContext);
+
+export const useProductContext = () => useContext(AppContext);
 export default AppProvider;

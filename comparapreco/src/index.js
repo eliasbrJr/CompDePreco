@@ -8,11 +8,11 @@ import {BrowserRouter} from 'react-router-dom';
 import ProductProvider from './componets/Context/ProductContext';
 
 ReactDOM.render(
-  <ProductProvider>
     <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </ProductProvider>,
+      <ProductProvider>
+        <App />
+      </ProductProvider>
+    </BrowserRouter>,
   document.getElementById('root')
 );
 

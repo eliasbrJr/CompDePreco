@@ -30,7 +30,9 @@
     width: 660px;
     margin-right: 10px;
 }
-.market-button button{
+.market-button .button-to-market{
+    color: inherit;
+  text-decoration: inherit;
     margin-top: 6px;
     width: 121px;
     height: 57px;
@@ -52,7 +54,7 @@
     font-size: 48px;
     margin: 0;
 }
-.card-product-text .market-name{
+.card-product-text .market-nome{
     font-size: 30px;
     font-weight: bolder;
 }
@@ -119,7 +121,7 @@
         font-size: 30px;
         margin: 0;
     }
-    .card-product-text .market-name{
+    .card-product-text .market-nome{
         font-size: 20px;
         font-weight: bolder;
     }
@@ -171,7 +173,7 @@
         font-size: 12px;
         margin: 0;
     }
-    .card-product-text .market-name{
+    .card-product-text .market-nome{
         font-size: 12px;
         font-weight: bolder;
     }
