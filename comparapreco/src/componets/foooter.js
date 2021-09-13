@@ -28,7 +28,7 @@ class Footer extends React.Component {
                 </h4>
               </Col>
               <Col className="text-lg-center btn-wrapper" lg="6">
-              <img className='sotre-pic'src={logo} alt='Foto da Loja' height='100px'/>
+              <img className='sotre-pic'src={logo} alt='Foto da Loja' height='150px'/>
               </Col>
             </Row>
             <hr />
