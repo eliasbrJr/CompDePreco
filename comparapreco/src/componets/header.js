@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './header.css'
+import logo from '../Assets/Photos/Logotipo ComparaPreco.svg'
 import {
   Collapse,
   Navbar,
@@ -31,7 +32,7 @@ const Topo = (props) => {
   return (
     <div className="topo">
       <Navbar light expand="md">
-        <NavbarBrand className="col col-sm-2" href="/">Compara Preço</NavbarBrand>
+        <img className='sotre-pic'src={logo} alt='Foto da Loja' height='60px'/>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
