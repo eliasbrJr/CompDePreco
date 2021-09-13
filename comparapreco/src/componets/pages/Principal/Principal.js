@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import Topo from '../../header'
 import { Alert } from "reactstrap"
 import ProdutoDataService from "../../../service/ProdutoDataService"
 import CardPrincipal from '../../Cards/CardPrincipal'
@@ -8,6 +9,7 @@ const Principal = ()=>{
     const [ productList, setProductList] = useState([])
     const [numberPage, setNumberPage] = useState(0)
     const [maxpage, setMaxPage] = useState(0)
+    const [nameProduct, setNameProduct] = useState("")
 
     const movePage = (e)=>{
         if(e.target.id==="next-page"){ 
@@ -39,6 +41,23 @@ const Principal = ()=>{
             setProductList(list)
         }) 
     }
+
+    const populateProductListFilter = (namefilter)=>{
+        ProdutoDataService.getProductByName(namefilter)
+        .then(response =>{
+            let list = []
+            let listProductNames = [...new Set(response.data.content.map((item) => item.nome.toLowerCase()))]
+            response.data.content.sort((a,b)=>a.nome.localeCompare(b.nome) || a.preco - b.preco)
+            listProductNames.forEach((item)=>{
+                list.push(response.data.content.find((e)=>{
+                    return e.nome.toLowerCase() == item.toLowerCase()
+                }))
+            })
+            setMaxPage(response.data.totalPages)
+            setProductList(list)
+        }) 
+    }
+
     useEffect(()=>{
         populateProductList()
     },[]);
@@ -48,6 +67,7 @@ const Principal = ()=>{
     },[numberPage]);
     return(
         <div className = 'page'>
+            <Topo filter={populateProductListFilter}/>
             <div className = 'title'>
                 <h1>
                     Compara Preço
