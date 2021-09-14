@@ -43,7 +43,6 @@ const Principal = ()=>{
     }
 
     const populateProductListFilter = (namefilter)=>{
-        console.log(namefilter)
         if(namefilter){
         ProdutoDataService.getProductByName(namefilter)
         .then(response =>{
