@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import Topo from '../../header'
+import Header from '../../header'
 import { Alert } from "reactstrap"
 import ProdutoDataService from "../../../service/ProdutoDataService"
 import CardPrincipal from '../../Cards/CardPrincipal'
@@ -43,6 +43,8 @@ const Principal = ()=>{
     }
 
     const populateProductListFilter = (namefilter)=>{
+        console.log(namefilter)
+        if(namefilter){
         ProdutoDataService.getProductByName(namefilter)
         .then(response =>{
             let list = []
@@ -57,6 +59,7 @@ const Principal = ()=>{
             setProductList(list)
         }) 
     }
+    }
 
     useEffect(()=>{
         populateProductList()
@@ -67,7 +70,7 @@ const Principal = ()=>{
     },[numberPage]);
     return(
         <div className = 'page'>
-            <Topo filter={populateProductListFilter}/>
+            <Header filter={populateProductListFilter}/>
             <div className = 'title'>
                 <h1>
                     Compara Preço

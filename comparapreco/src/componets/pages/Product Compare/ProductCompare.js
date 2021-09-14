@@ -42,41 +42,25 @@ const ProductCompare = (props) => {
     }
     const clearlocale = () => {
         setLocale([])
+        setProductList([])
     }
-    /*----------------------------BLOCO DE FILTRO POR BAIRRO--------------------------
-    // async function getBairro (cep){
-    //     let data = await axios(`https://cep.awesomeapi.com.br/json/${cep.replace(/[^0-9]/g, '')}`)
-    //     .then(response =>{
-    //         return response.data.district.toLocaleLowerCase()
-    //     })
-        
-    //     return data
-    // }
-
-    // const populateProductList = ()=>{
-    //     if(locale.length>0){
-    //     ProdutoDataService.getProductByName(name)
-    //     .then(async response =>{
-    //         let filterlist = []
-    //         response.data.content.forEach(async(element)=>{
-    //         if(inputList.map(iten=>iten.locate.toLocaleLowerCase())
-    //         .includes( await getBairro(element.lojas[0].cep)))
-    //             filterlist.push(element)
-    //         })
-    //         filterlist.sort((a,b)=> a.preco - b.preco)
-    //         setProductList(filterlist)
-    //         checkList()
-            
-    //     })
-    //     }
-    // }
-    /*----------------------------BLOCO DE FILTRO POR BAIRRO--------------------------*/
     const  populateProductList =()=>{
         if(locale.length>0){
          ProdutoDataService.getProductByName(name)
         .then( response =>{
-            response.data.content.sort((a,b)=> a.preco - b.preco) 
-            setProductList(response.data.content)
+            let listFilter = response.data.content.filter((element)=>{
+                let bairro = element.lojas[0].logradouro.split(";")[1]
+
+                return inputList.map(iten=>iten.locate.toLocaleLowerCase())
+                .includes(bairro.trimStart().toLocaleLowerCase())
+                
+            })
+            if(listFilter.length>0){
+                listFilter.sort((a,b)=> a.preco - b.preco) 
+                setProductList(listFilter)
+            }else{
+                setProductNotFound(true)   
+            }
         })
         }
     }
@@ -104,7 +88,7 @@ const ProductCompare = (props) => {
                                 </ul>
                                 <button onClick={clearlocale}>Edit</button>
                             </div>
-                            <div className='card-most-value'>
+                            <div id='card-most-value' className='card-most-value'>
                                 <div class='img-star'>
                                     <img src='/Photos/star1.png' />
                                 </div>
@@ -118,7 +102,7 @@ const ProductCompare = (props) => {
                         <div className='card-product-list'>
                             <div className='card-product-list-bg'>
                                 <h3>Outros Preços</h3>
-                                <div className='cards-product'>
+                                <div id = 'cards-product' className='cards-product'>
                                     {productList.length ? (
                                         productList.map((item) => {
                                             return <CardProductList product={item} />

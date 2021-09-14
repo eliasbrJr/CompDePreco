@@ -59,7 +59,7 @@ const Topo = (props) => {
             </InputGroupButtonDropdown>
 
             <Input placeholder="Pesquisar" value={namefilter} />
-            <InputGroupAddon addonType="prepend"><Button onClick={props.filter(namefilter)}>Pesquisar</Button></InputGroupAddon>
+            <InputGroupAddon addonType="prepend"><Button /*onClick={props.filter(namefilter)}*/>Pesquisar</Button></InputGroupAddon>
           </InputGroup>
           <NavbarText className="col col-md-2"></NavbarText>
         </Collapse>
