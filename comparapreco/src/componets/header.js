@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './header.css'
 import logo from '../Assets/Photos/Logotipo ComparaPreco.svg'
+import ProdutoDataService from "../service/ProdutoDataService"
 import {
   Collapse,
   Navbar,
@@ -21,6 +22,8 @@ import {
   Button
 } from 'reactstrap';
 
+
+
 const Topo = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -29,9 +32,15 @@ const Topo = (props) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggleDropDown = () => setDropdownOpen(!dropdownOpen);
 
+  const [namefilter, setNamefilter] = useState()
+  const [dropname, setDropname] = useState("loja");
+
+
+
   return (
     <div className="topo">
       <Navbar light expand="md">
+      <NavbarText className="col col-md-2"></NavbarText>
         <img className='sotre-pic'src={logo} alt='Foto da Loja' height='60px'/>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
@@ -42,18 +51,17 @@ const Topo = (props) => {
           <InputGroup>
             <InputGroupButtonDropdown addonType="append" isOpen={dropdownOpen} toggle={toggleDropDown}>
               <DropdownToggle caret>
-                Loja
               </DropdownToggle>
               <DropdownMenu>
-                <DropdownItem>Loja</DropdownItem>
-                <DropdownItem>Produto</DropdownItem>
+                <DropdownItem>Lojas</DropdownItem>
+                <DropdownItem>Produtos</DropdownItem>
               </DropdownMenu>
             </InputGroupButtonDropdown>
 
-            <Input placeholder="Pesquisar" />
-            <InputGroupAddon addonType="prepend"><Button>Pesquisar</Button></InputGroupAddon>
+            <Input placeholder="Pesquisar" value={namefilter} />
+            <InputGroupAddon addonType="prepend"><Button onClick={props.filter(namefilter)}>Pesquisar</Button></InputGroupAddon>
           </InputGroup>
-          <NavbarText className="col col-md-2">Simple Text</NavbarText>
+          <NavbarText className="col col-md-2"></NavbarText>
         </Collapse>
       </Navbar>
     </div>
