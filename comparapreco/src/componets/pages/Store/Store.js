@@ -22,7 +22,7 @@ const Store = (props)=>{
     useEffect(()=>{
         populateStore()
     },[])
-    var variable = '41940330'
+    var variable = '-13.0126292,%20-38.4819050'
     return (
         <div>{
         store.produtos ?(
@@ -40,8 +40,7 @@ const Store = (props)=>{
                     </div>
                     <div className='adress-frame'>
                         
-                    <iframe id='map-frame' src={`https://maps.google.com/maps?q=${variable}&t=&z=13&ie=UTF8&iwloc=&output=embed`}/>
-                        
+                    <iframe id='map-frame' src={`https://maps.google.com/maps?q=${store.latitude},%20${store.longitude}&t=&z=13&ie=UTF8&iwloc=&output=embed`}/>
                     <div className='phone-store'>
                             <h4>Ligue já</h4>
                             <h5>{store.telefone}</h5>
